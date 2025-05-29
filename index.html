@@ -555,7 +555,7 @@
                 // Фильтр по категориям
                 let matchesCategory = true;
                 if (selectedCategories.length > 0) {
-                    matchesCategory = selectedCategories.includes(event.category);
+                    matchesCategory = selectedCategories.includes(event.category.value);
                 }
                 
                 // Фильтр по отраслям
