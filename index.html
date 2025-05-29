@@ -175,9 +175,9 @@
                     <div class="flex items-center space-x-2">
                         <span class="text-gray-600">Сортировка:</span>
                         <select id="sort-select" class="px-3 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                            <option>По дате</option>
-                            <option>По алфавиту</option>
-                            <option>По цене</option>
+                            <option value="date">По дате</option>
+                            <option value="alphabet">По алфавиту</option>
+                            <option value="price">По цене</option>
                         </select>
                     </div>
                 </div>
@@ -203,29 +203,7 @@
                         <i class="fas fa-industry text-blue-400 mr-2"></i> IndustryEvents
                     </h3>
 
-                    <p class="text-gray-400">Платформа для поиска отраслевых мероприятий промышленности и энергетики.</p>
-                </div>
-
-                <div>
-                    <h4 class="font-bold text-lg mb-4">Контакты</h4>
-                    <ul class="space-y-2">
-                        
-                        <li class="flex items-center">
-                            <i class="fas fa-envelope text-blue-400 mr-2"></i>
-                            <span class="text-gray-400">info@industryevents.ru</span>
-                        </li>
-
-                        <li class="flex items-center">
-                            <i class="fas fa-phone text-blue-400 mr-2"></i>
-                            <span class="text-gray-400">+7 (123) 456-78-90</span>
-                        </li>
-
-                        <li class="flex items-center">
-                            <i class="fas fa-map-marker-alt text-blue-400 mr-2"></i>
-                            <span class="text-gray-400">Москва, ул. Промышленная, 15</span>
-                        </li>
-
-                    </ul>
+                    <p class="text-gray-400">Важные мероприятия отрасли</p>
                 </div>
             </div>
         </div>
@@ -472,21 +450,16 @@
                         <p class="text-gray-600 text-sm mb-4 line-clamp-2">${event.description}</p>
 
                         <div class="flex flex-wrap gap-2 mb-4">
-                        
                             <span class="flex items-center text-gray-600 text-sm">
                                 <i class="fas fa-map-marker-alt text-blue-500 mr-1"></i> ${event.location}
                             </span>
-
                             <span class="flex items-center text-gray-600 text-sm">
                                 <i class="fas fa-tag text-blue-500 mr-1"></i> ${event.industry}
                             </span>
-                            
                         </div>
 
                         <div class="flex justify-between items-center">
-
                             <span class="font-bold text-gray-800">${event.price}</span>
-
                             <a href="${event.link}" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition">
                                 Подробнее
                             </a>
@@ -534,7 +507,6 @@
             displayEvents(filteredEvents);
         }
 
-        // Инициализация фильтров
         function initFilters() {
             document.querySelectorAll('.category-filter').forEach(checkbox => {
                 checkbox.addEventListener('change', function() {
