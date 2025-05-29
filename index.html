@@ -25,7 +25,6 @@
             background-image: radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.1) 0%, rgba(255, 255, 255, 1) 100%);
         }
     </style>
-
 </head>
 <body class="bg-gray-50 font-sans">
     <header class="bg-white shadow-sm">
@@ -213,168 +212,12 @@
  
 
     <script>
-        /*const events = [
-            {
-                id: 1,
-                title: "Цифровая индустрия промышленной России (ЦИПР) 2025",
-                date: "2025-06-02",
-                endDate: "2025-06-05",
-                location: "Москва",
-                category: "Форум",
-                industry: "Промышленность",
-                type: "Выставка",
-                price: "По регистрации",
-                image: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-                description: "Ключевое событие цифровой трансформации промышленности России с участием ведущих экспертов отрасли.",
-                link: "https://mpei.ru/Structure/Universe/tanpe/structure/astpc/Pages/control2024.aspx"
-            },
-            {
-                id: 2,
-                title: "СИБЭНЕРГОПРОМ 2025",
-                date: "2025-06-03",
-                endDate: "2025-06-05",
-                location: "Новосибирск",
-                category: "Форум",
-                industry: "Энергетика",
-                type: "Выставка",
-                price: "По регистрации",
-                image: "https://images.unsplash.com/photo-1508514177221-188e1eaf2d1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-                description: "Международная выставка и форум энергетического оборудования и технологий.",
-                link: "https://www.elec.ru/events/2025/reindustry-expo.html"
-            },
-            {
-                id: 3,
-                title: "Уголь России и Майнинг, Охрана труда, Недра России, Промтехэкспо",
-                date: "2025-06-03",
-                endDate: "2025-06-06",
-                location: "Новокузнецк",
-                category: "Выставка",
-                industry: "Горное дело",
-                type: "Выставка",
-                price: "По регистрации",
-                image: "https://images.unsplash.com/photo-1542607031-37f4d28a629e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-                description: "Комплекс выставок горно-добывающей промышленности и промышленных технологий.",
-                link: "https://expomap.ru/expo/nedra-rossii/"
-            },
-            {
-                id: 4,
-                title: "Конференция по управлению в технических системах",
-                date: "2025-06-10",
-                location: "Москва, МЭИ",
-                category: "Конференция",
-                industry: "Промышленность",
-                type: "Конференция",
-                price: "Бесплатно",
-                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-                description: "Научно-практическая конференция по автоматизированным системам управления.",
-                link: "https://mpei.ru/Structure/Universe/tanpe/structure/astpc/Pages/control2024.aspx"
-            },
-            {
-                id: 5,
-                title: "Учет затрат на пусконаладочные работы инженерных систем",
-                date: "2025-07-15",
-                location: "Москва",
-                category: "Семинар",
-                industry: "Строительство",
-                type: "Семинар",
-                price: "15 000 ₽",
-                image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-                description: "Практический семинар по учету затрат на ПНР инженерных систем.",
-                link: "https://www.c-o-k.ru/seminars/uchet-zatrat-na-puskonaladochnye-raboty-inzhenernyh-sistem"
-            },
-            {
-                id: 6,
-                title: "NanoDrive: Российские решения для строительства и производства",
-                date: "2025-08-22",
-                location: "Санкт-Петербург",
-                category: "Конференция",
-                industry: "Строительство",
-                type: "Конференция",
-                price: "По регистрации",
-                image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-                description: "Конференция о российских решениях для строительства и производства САПР.",
-                link: "https://www.c-o-k.ru/seminars/nanodrayv-konferenciya-o-rossiyskih-resheniyah-dlya-stroitelstva-i-proizvodstva-sapr-tim-sod4"
-            },
-            {
-                id: 7,
-                title: "TIMI 2025: Технологии информационного моделирования и инжиниринга",
-                date: "2025-09-10",
-                location: "Москва",
-                category: "Конференция",
-                industry: "Строительство",
-                type: "Конференция",
-                price: "20 000 ₽",
-                image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-                description: "Международная конференция по технологиям информационного моделирования.",
-                link: "https://timi-conf.ru/"
-            },
-            {
-                id: 8,
-                title: "BIMForum PRO 2025",
-                date: "2025-10-15",
-                location: "Москва",
-                category: "Форум",
-                industry: "Строительство",
-                type: "Форум",
-                price: "25 000 ₽",
-                image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-                description: "Профессиональный форум по информационному моделированию в строительстве.",
-                link: "https://bimforum.pro/"
-            },
-            {
-                id: 9,
-                title: "Горный форум 2025",
-                date: "2025-11-05",
-                location: "Красноярск",
-                category: "Форум",
-                industry: "Горное дело",
-                type: "Форум",
-                price: "По регистрации",
-                image: "https://images.unsplash.com/photo-1542607031-37f4d28a629e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-                description: "Ключевое событие горнодобывающей промышленности Сибири и Дальнего Востока.",
-                link: "https://controlengrussia.com/rynok/gornyj-forum-2025/"
-            },
-            {
-                id: 10,
-                title: "Инженерное собрание России 2025",
-                date: "2025-11-20",
-                location: "Москва",
-                category: "Форум",
-                industry: "Промышленность",
-                type: "Форум",
-                price: "По регистрации",
-                image: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-                description: "Главное событие для инженеров и технических специалистов России.",
-                link: "https://controlengrussia.com/rynok/inzhenernoe-sobranie-rossii-2025/"
-            },
-            {
-                id: 11,
-                title: "Энергоэффективность в промышленности",
-                date: "2025-12-03",
-                location: "Екатеринбург",
-                category: "Конференция",
-                industry: "Энергетика",
-                type: "Конференция",
-                price: "18 000 ₽",
-                image: "https://images.unsplash.com/photo-1508514177221-188e1eaf2d1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-                description: "Практическая конференция по энергосберегающим технологиям в промышленности.",
-                link: "http://www.intecheco.ru/energo/"
-            },
-            {
-                id: 12,
-                title: "LIFT: Форум лифтовой отрасли",
-                date: "2025-04-15",
-                location: "Москва, ВДНХ",
-                category: "Форум",
-                industry: "Строительство",
-                type: "Форум",
-                price: "По регистрации",
-                image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-                description: "Ведущее отраслевое мероприятие лифтовой промышленности России.",
-                link: "https://lift.vdnh.ru/"
-            }
-        ];*/
         let events = [];
+
+        function containsIgnoreCase(str, search) {
+            return str.toLowerCase().includes(search.toLowerCase());
+        }
+        
         async function loadEventsFromExcel() {
             try {
                 const response = await fetch('events.xlsx');
@@ -396,9 +239,8 @@
                     location: item.location || '',
                     category: item.category || '',
                     industry: item.industry || '',
-                    type: item.type || '',
-                    price: item.price || '',
-                    image: item.image || 'https://via.placeholder.com/500x300?text=No+Image',
+                    price: item.price || 'по уточнению',
+                    image: item.image || 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80',
                     description: item.description || '',
                     link: item.link || '#'
                 }));
@@ -535,12 +377,16 @@
                 
                 let matchesCategory = true;
                 if (selectedCategories.length > 0) {
-                    matchesCategory = selectedCategories.includes(event.category);
+                    matchesCategory = selectedCategories.some(cat => 
+                        containsIgnoreCase(event.category, cat)
+                    );
                 }
                 
                 let matchesIndustry = true;
                 if (selectedIndustries.length > 0) {
-                    matchesIndustry = selectedIndustries.includes(event.industry);
+                    matchesIndustry = selectedIndustries.some(ind => 
+                        containsIgnoreCase(event.industry, ind)
+                    );
                 }
                 
                 return matchesSearch && matchesDate && matchesCategory && matchesIndustry;
