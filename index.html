@@ -633,15 +633,16 @@
             const container = document.getElementById('events-container');
             container.innerHTML = '';    
 
-            /*if (eventsToDisplay.length === 0) {
+            if (eventsToDisplay.length === 0) {
                 container.innerHTML = `
                     <div class="col-span-full text-center py-12">
                         <i class="fas fa-search text-gray-400 text-4xl mb-4"></i>
-                        <p class="text-gray-600">Ничего не найдено. Попробуйте другой запрос.</p>
+                        <p class="text-gray-600 text-lg">Ничего не найдено</p>
+                        <p class="text-gray-500">Попробуйте изменить параметры поиска или фильтры</p>
                     </div>
                 `;
                 return;
-            }*/
+            }
             
             eventsToDisplay.forEach(event => {
                 const eventElement = document.createElement('div');
