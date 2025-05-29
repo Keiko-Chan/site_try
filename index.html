@@ -67,29 +67,6 @@
                     <h3 class="font-bold text-lg mb-4 flex items-center">
                         <i class="fas fa-sliders-h text-blue-500 mr-2"></i> Фильтры
                     </h3>
-                    
-                    <div class="mb-6">
-                        <h4 class="font-medium text-gray-700 mb-2">Дата проведения</h4>
-                        <div class="space-y-2">
-                            
-                            <label class="flex items-center">
-                                <input type="radio" name="date" class="form-radio text-blue-500" value="all" checked>
-                                <span class="ml-2 text-gray-600">Все даты</span>
-                            </label>
-
-                            <label class="flex items-center">
-                                <input type="radio" name="date" class="form-radio text-blue-500" value="june">
-                                <span class="ml-2 text-gray-600">Июнь 2025</span>
-                            </label>
-
-                            <label class="flex items-center">
-                                <input type="radio" name="date" class="form-radio text-blue-500" value="2025">
-                                <span class="ml-2 text-gray-600">2025 год</span>
-                            </label>
-                            
-                        </div>
-                    </div>
-                   
 
                     <div class="mb-6">
                         <h4 class="font-medium text-gray-700 mb-2">Категории</h4>
@@ -357,7 +334,6 @@
         function filterEvents() {
             const searchTerm = document.querySelector('input[type="text"]').value.toLowerCase().trim();
             
-            const selectedDate = document.querySelector('input[name="date"]:checked').value;
             const selectedCategories = Array.from(document.querySelectorAll('.category-filter:checked')).map(el => el.value);
             const selectedIndustries = Array.from(document.querySelectorAll('.industry-filter:checked')).map(el => el.value);
             
@@ -365,15 +341,6 @@
                 const matchesSearch = searchTerm === '' || 
                     event.title.toLowerCase().includes(searchTerm) || 
                     event.description.toLowerCase().includes(searchTerm);
-                
-                let matchesDate = true;
-                if (selectedDate === 'june') {
-                    const eventDate = new Date(event.date);
-                    matchesDate = eventDate.getMonth() === 5 && eventDate.getFullYear() === 2025; // июнь = 5 (0-11)
-                } else if (selectedDate === '2025') {
-                    const eventDate = new Date(event.date);
-                    matchesDate = eventDate.getFullYear() === 2025;
-                }
                 
                 let matchesCategory = true;
                 if (selectedCategories.length > 0) {
@@ -389,7 +356,7 @@
                     );
                 }
                 
-                return matchesSearch && matchesDate && matchesCategory && matchesIndustry;
+                return matchesSearch && matchesCategory && matchesIndustry;
             });
             
             displayEvents(filteredEvents);
