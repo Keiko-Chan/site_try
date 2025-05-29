@@ -178,12 +178,11 @@
                     <h2 class="text-2xl font-bold text-gray-800">Отраслевые мероприятия 2025</h2>
                     <div class="flex items-center space-x-2">
                         <span class="text-gray-600">Сортировка:</span>
-
-                        <select class="px-3 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <select id="sort-select" class="px-3 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                             <option>По дате</option>
                             <option>По алфавиту</option>
+                            <option>По цене</option>
                         </select>
-
                     </div>
                 </div>
                 
@@ -457,6 +456,27 @@
                 `;
                 return;
             }
+
+            const sortSelect = document.getElementById('sort-select');
+            const sortBy = sortSelect.value;
+            
+            eventsToDisplay.sort((a, b) => {
+                if (sortBy === 'date') {
+                    return new Date(a.date) - new Date(b.date);
+                } else if (sortBy === 'alphabet') {
+                    return a.title.localeCompare(b.title);
+                } else if (sortBy === 'price') {
+                    const getPriceValue = (event) => {
+                        if (event.price === 'Бесплатно') return 0;
+                        if (event.price === 'По регистрации') return 1;
+                        const priceNum = parseInt(event.price.replace(/\D+/g, ''));
+                        return priceNum || 2; 
+                    };
+                    
+                    return getPriceValue(a) - getPriceValue(b);
+                }
+                return 0;
+            });
             
             eventsToDisplay.forEach(event => {
                 const eventElement = document.createElement('div');
@@ -507,19 +527,15 @@
         function filterEvents() {
             const searchTerm = document.querySelector('input[type="text"]').value.toLowerCase().trim();
             
-            // Получаем выбранные фильтры
             const selectedDate = document.querySelector('input[name="date"]:checked').value;
             const selectedCategories = Array.from(document.querySelectorAll('.category-filter:checked')).map(el => el.value);
             const selectedIndustries = Array.from(document.querySelectorAll('.industry-filter:checked')).map(el => el.value);
             
-            // Фильтрация
             let filteredEvents = events.filter(event => {
-                // Поиск по тексту
                 const matchesSearch = searchTerm === '' || 
                     event.title.toLowerCase().includes(searchTerm) || 
                     event.description.toLowerCase().includes(searchTerm);
                 
-                // Фильтр по дате
                 let matchesDate = true;
                 if (selectedDate === 'june') {
                     const eventDate = new Date(event.date);
@@ -529,13 +545,11 @@
                     matchesDate = eventDate.getFullYear() === 2025;
                 }
                 
-                // Фильтр по категориям
                 let matchesCategory = true;
                 if (selectedCategories.length > 0) {
                     matchesCategory = selectedCategories.includes(event.category);
                 }
                 
-                // Фильтр по отраслям
                 let matchesIndustry = true;
                 if (selectedIndustries.length > 0) {
                     matchesIndustry = selectedIndustries.includes(event.industry);
@@ -549,7 +563,6 @@
 
         // Инициализация фильтров
         function initFilters() {
-            // Обработчики для категорий
             document.querySelectorAll('.category-filter').forEach(checkbox => {
                 checkbox.addEventListener('change', function() {
                     if (this.checked) {
@@ -568,7 +581,6 @@
                 filterEvents();
             });
             
-            // Обработчики для отраслей
             document.querySelectorAll('.industry-filter').forEach(checkbox => {
                 checkbox.addEventListener('change', function() {
                     if (this.checked) {
@@ -587,14 +599,11 @@
                 filterEvents();
             });
             
-            // Обработчик для даты
             document.querySelectorAll('input[name="date"]').forEach(radio => {
                 radio.addEventListener('change', filterEvents);
             });
             
-            // Обработчик для поиска
             document.querySelector('input[type="text"]').addEventListener('input', function() {
-                // Сброс фильтров при поиске
                 document.querySelector('input[name="date"][value="all"]').checked = true;
                 document.querySelector('.category-all').checked = true;
                 document.querySelectorAll('.category-filter').forEach(checkbox => {
@@ -607,9 +616,9 @@
                 
                 filterEvents();
             });
+            document.getElementById('sort-select').addEventListener('change', filterEvents);
         }
 
-        // Инициализация при загрузке страницы
         document.addEventListener('DOMContentLoaded', function() {
             initFilters();
             displayEvents(events); // Показать все мероприятия при первой загрузке
