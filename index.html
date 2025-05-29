@@ -107,27 +107,27 @@
                         <div class="space-y-2" id="category-filters">
                             
                             <label class="flex items-center">
-                                <input type="radio" name="category" class="form-radio text-blue-500" checked>
+                                <input type="radio" name="category" class="form-radio text-blue-500 category-filter" checked>
                                 <span class="ml-2 text-gray-600">Все категории</span>
                             </label>
 
                             <label class="flex items-center">
-                                <input type="checkbox" class="form-checkbox text-blue-500">
+                                <input type="checkbox" class="form-checkbox text-blue-500 category-filter">
                                 <span class="ml-2 text-gray-600">Конференции</span>
                             </label>
 
                             <label class="flex items-center">
-                                <input type="checkbox" class="form-checkbox text-blue-500">
+                                <input type="checkbox" class="form-checkbox text-blue-500 category-filter">
                                 <span class="ml-2 text-gray-600">Выставки</span>
                             </label>
 
                             <label class="flex items-center">
-                                <input type="checkbox" class="form-checkbox text-blue-500">
+                                <input type="checkbox" class="form-checkbox text-blue-500 category-filter">
                                 <span class="ml-2 text-gray-600">Форумы</span>
                             </label>
 
                             <label class="flex items-center">
-                                <input type="checkbox" class="form-checkbox text-blue-500">
+                                <input type="checkbox" class="form-checkbox text-blue-500 category-filter">
                                 <span class="ml-2 text-gray-600">Семинары</span>
                             </label>
                             
@@ -147,27 +147,27 @@
                             </label>
 
                             <label class="flex items-center">
-                                <input type="checkbox" class="form-checkbox text-blue-500">
+                                <input type="checkbox" class="form-checkbox text-blue-500 industry-filter">
                                 <span class="ml-2 text-gray-600">Промышленность</span>
                             </label>
 
                             <label class="flex items-center">
-                                <input type="checkbox" class="form-checkbox text-blue-500">
+                                <input type="checkbox" class="form-checkbox text-blue-500 industry-filter">
                                 <span class="ml-2 text-gray-600">Энергетика</span>
                             </label>
 
                             <label class="flex items-center">
-                                <input type="checkbox" class="form-checkbox text-blue-500">
+                                <input type="checkbox" class="form-checkbox text-blue-500 industry-filter">
                                 <span class="ml-2 text-gray-600">Горное дело</span>
                             </label>
 
                             <label class="flex items-center">
-                                <input type="checkbox" class="form-checkbox text-blue-500">
+                                <input type="checkbox" class="form-checkbox text-blue-500 industry-filter">
                                 <span class="ml-2 text-gray-600">Строительство</span>
                             </label>
 
                             <label class="flex items-center">
-                                <input type="checkbox" class="form-checkbox text-blue-500">
+                                <input type="checkbox" class="form-checkbox text-blue-500 industry-filter">
                                 <span class="ml-2 text-gray-600">Металлургия</span>
                             </label>
 
@@ -733,69 +733,6 @@
                     displayEvents(filteredEvents);
                 });
             });
-
-            /*function applyFilters() {
-                const dateFilter = document.querySelector('input[name="date"]:checked').nextElementSibling.textContent;
-                const showAllCategories = document.querySelector('input[name="category"]:checked') !== null;
-                const showAllIndustries = document.querySelector('input[name="industry"]:checked') !== null;
-                
-                const selectedCategories = showAllCategories 
-                    ? []
-                    : Array.from(document.querySelectorAll('.category-filter:checked'))
-                        .map(el => el.nextElementSibling.textContent);
-                
-                const selectedIndustries = showAllIndustries
-                    ? []
-                    : Array.from(document.querySelectorAll('.industry-filter:checked'))
-                        .map(el => el.nextElementSibling.textContent);
-            
-                let filteredEvents = [...events];
-                
-                if (dateFilter === "Июнь 2025") {
-                    filteredEvents = filteredEvents.filter(event => new Date(event.date).getMonth() === 5);
-                } else if (dateFilter === "2025 год") {
-                    filteredEvents = filteredEvents.filter(event => new Date(event.date).getFullYear() === 2025);
-                }
-                
-                if (selectedCategories.length > 0) {
-                    filteredEvents = filteredEvents.filter(event => 
-                        selectedCategories.includes(event.category)
-                    );
-                }
-                
-                if (selectedIndustries.length > 0) {
-                    filteredEvents = filteredEvents.filter(event => 
-                        selectedIndustries.includes(event.industry)
-                    );
-                }
-                
-                displayEvents(filteredEvents);
-            }
-            
-            document.querySelectorAll('input[name="category"], input[name="industry"]').forEach(radio => {
-                radio.addEventListener('change', function() {
-                    const filterType = this.classList.contains('category-filter') ? 'category' : 'industry';
-                    document.querySelectorAll(`.${filterType}-filter[type="checkbox"]`).forEach(checkbox => {
-                        checkbox.checked = false;
-                    });
-                    applyFilters();
-                });
-            });
-            
-            document.querySelectorAll('.category-filter[type="checkbox"], .industry-filter[type="checkbox"]').forEach(checkbox => {
-                checkbox.addEventListener('change', function() {
-                    const filterType = this.classList.contains('category-filter') ? 'category' : 'industry';
-                    document.querySelector(`input[name="${filterType}"]`).checked = false;
-                    applyFilters();
-                });
-            });
-            
-            document.addEventListener('DOMContentLoaded', () => {
-                document.querySelectorAll('input[name="date"]').forEach(radio => {
-                    radio.addEventListener('change', applyFilters);
-                });
-                applyFilters(); 
-            });*/
         });
 
     </script>
