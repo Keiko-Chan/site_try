@@ -108,22 +108,22 @@
 
                             <label class="flex items-center">
                                 <input type="checkbox" class="form-checkbox text-blue-500 category-filter" value="Конференция">
-                                <span class="ml-2 text-gray-600">Конференции</span>
+                                <span class="ml-2 text-gray-600">Конференция</span>
                             </label>
 
                             <label class="flex items-center">
                                 <input type="checkbox" class="form-checkbox text-blue-500 category-filter" value="Выставка">
-                                <span class="ml-2 text-gray-600">Выставки</span>
+                                <span class="ml-2 text-gray-600">Выставка</span>
                             </label>
 
                             <label class="flex items-center">
                                 <input type="checkbox" class="form-checkbox text-blue-500 category-filter" value="Форум">
-                                <span class="ml-2 text-gray-600">Форумы</span>
+                                <span class="ml-2 text-gray-600">Форум</span>
                             </label>
 
                             <label class="flex items-center">
                                 <input type="checkbox" class="form-checkbox text-blue-500 category-filter" value="Семинар">
-                                <span class="ml-2 text-gray-600">Семинары</span>
+                                <span class="ml-2 text-gray-600">Семинар</span>
                             </label>
                             
                         </div>
@@ -555,7 +555,7 @@
                 // Фильтр по категориям
                 let matchesCategory = true;
                 if (selectedCategories.length > 0) {
-                    matchesCategory = selectedCategories.includes(event.category.value);
+                    matchesCategory = selectedCategories.includes(event.category);
                 }
                 
                 // Фильтр по отраслям
